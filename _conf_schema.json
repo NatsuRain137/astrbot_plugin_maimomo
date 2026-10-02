@@ -1,0 +1,95 @@
+{
+  "access_token": {
+    "description": "墨墨 Access Token（全局默认）",
+    "type": "string",
+    "default": "",
+    "secret": true,
+    "obvious_hint": true,
+    "hint": "获取方式：墨墨背单词 App → 我的 → 开放 API（网页获取的 Token 有效期为 7 天）。留空则只能由用户在各聊天会话中用 /memo token 自行绑定。"
+  },
+  "base_url": {
+    "description": "墨墨开放 API 地址",
+    "type": "string",
+    "default": "https://open.maimemo.com/open/api/v1",
+    "hint": "一般无需修改。"
+  },
+  "timeout": {
+    "description": "请求超时时间（秒）",
+    "type": "int",
+    "default": 20,
+    "slider": {
+      "min": 5,
+      "max": 120,
+      "step": 1
+    }
+  },
+  "max_retries": {
+    "description": "网络异常时的重试次数",
+    "type": "int",
+    "default": 2,
+    "slider": {
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    "hint": "仅对网络错误与 5xx 生效，不会重试鉴权失败。"
+  },
+  "enable_llm_tools": {
+    "description": "启用 LLM 工具（Function Calling）",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后，AI 可以直接调用墨墨接口查词、查看学习进度、写入云词本等。"
+  },
+  "allow_llm_write": {
+    "description": "允许 AI 执行写操作",
+    "type": "bool",
+    "default": false,
+    "hint": "涉及新增单词到学习规划、创建/修改/删除云词本、助记、释义、例句等会改动账号数据的操作。关闭时 AI 只能读取数据。"
+  },
+  "notepad_creation": {
+    "description": "云词本创建权限",
+    "type": "string",
+    "default": "everyone",
+    "options": [
+      "everyone",
+      "admin"
+    ],
+    "labels": [
+      "所有人",
+      "仅管理员"
+    ],
+    "hint": "everyone：所有用户都可以让 Bot 创建云词本；admin：仅 AstrBot 管理员。"
+  },
+  "output": {
+    "description": "输出与展示设置",
+    "type": "object",
+    "items": {
+      "list_limit": {
+        "description": "列表类结果的最大条数",
+        "type": "int",
+        "default": 20,
+        "slider": {
+          "min": 5,
+          "max": 100,
+          "step": 5
+        }
+      },
+      "word_limit": {
+        "description": "单词查询时每类内容（释义/助记/例句）的最大条数",
+        "type": "int",
+        "default": 5,
+        "slider": {
+          "min": 1,
+          "max": 20,
+          "step": 1
+        }
+      },
+      "show_attribution": {
+        "description": "展示墨墨内容时附带来源标注",
+        "type": "bool",
+        "default": true,
+        "hint": "墨墨开放平台服务协议要求展示其词汇内容时标注“内容来自墨墨背单词”，建议保持开启。"
+      }
+    }
+  }
+}

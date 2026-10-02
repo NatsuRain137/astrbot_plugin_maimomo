@@ -1,6 +1,19 @@
-name: helloworld # 插件唯一识别名，以 astrbot_plugin_ 前缀开头
-display_name: helloworld # 用于展示的名字，可以是方便人类阅读的名字（需要版本 >= v4.5.0，低版本不会报错，请放心填写）
-desc: AstrBot 插件示例。 # 插件简短描述
-version: v1.3.0 # 插件版本号。格式：v1.1.1 或者 v1.1
-author: Soulter # 作者
-repo: https://github.com/Soulter/helloworld # 插件的仓库地址
+name: astrbot_plugin_maimemo
+display_name: 墨墨背单词助手
+short_desc: 让 Bot 查词、看学习进度、管理墨墨云词本与学习规划。
+desc: |-
+  接入墨墨背单词（MaiMemo）开放 API。
+
+  · 学习数据：今日进度、今日/待复习/忘记/顽固词
+  · 查词：批量查单词 ID、查看释义/助记/例句
+  · 生词：加入学习规划、提前复习
+  · 云词本：列出、查看、新建、追加单词、删除
+  · 写入：新增助记、自定义释义、例句
+  · LLM 工具：让 AI 直接调用墨墨接口（写操作默认需管理员放行）
+
+  需要先在墨墨 App 内获取 Access Token 并绑定到会话。
+version: 1.0.1
+author: DSH
+# 发布到插件市场前请改成你自己的仓库地址
+repo: ""
+astrbot_version: ">=4.14,<5"
